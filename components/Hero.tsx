@@ -59,7 +59,7 @@ export default function Hero() {
             alt="에이스정리수납 로고"
             width={100}
             height={33}
-            className="h-7 md:h-8 w-auto opacity-70"
+            className="h-7 md:h-8 w-auto brightness-0"
           />
           <span className="text-lg md:text-xl text-muted">대표</span>
         </motion.div>
