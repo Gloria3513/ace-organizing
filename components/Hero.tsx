@@ -48,14 +48,21 @@ export default function Hero() {
           정리수납 전문가
         </motion.h1>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-4"
+          className="flex items-center justify-center gap-3 mb-4"
         >
-          에이스정리수납 대표
-        </motion.p>
+          <Image
+            src="/images/ace-logo.png"
+            alt="에이스정리수납 로고"
+            width={100}
+            height={33}
+            className="h-7 md:h-8 w-auto opacity-70"
+          />
+          <span className="text-lg md:text-xl text-muted">대표</span>
+        </motion.div>
 
         <motion.a
           href="tel:010-3465-0804"
