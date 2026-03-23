@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const services = [
   {
@@ -61,6 +62,25 @@ export default function Services() {
           <p className="text-muted text-lg">
             공간에 맞는 최적의 정리수납 솔루션을 제공합니다
           </p>
+        </motion.div>
+
+        {/* Portfolio grid image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-10 rounded-2xl overflow-hidden shadow-md"
+        >
+          <div className="relative aspect-[16/9]">
+            <Image
+              src="/images/portfolio-grid.png"
+              alt="다양한 공간 정리 사례"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1152px"
+            />
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

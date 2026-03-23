@@ -1,35 +1,62 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const portfolioItems = [
   {
-    title: "주방 정리",
-    location: "아파트 32평",
-    duration: "4시간",
-    beforeColor: "from-red-200 to-orange-200",
-    afterColor: "from-green-200 to-emerald-200",
-  },
-  {
-    title: "옷장 정리",
-    location: "아파트 24평",
-    duration: "3시간",
-    beforeColor: "from-yellow-200 to-red-200",
-    afterColor: "from-teal-200 to-cyan-200",
-  },
-  {
     title: "아이방 정리",
-    location: "아파트 28평",
-    duration: "5시간",
-    beforeColor: "from-purple-200 to-pink-200",
-    afterColor: "from-blue-200 to-indigo-200",
+    location: "아파트",
+    before: "/images/before-after/kids-room-before.png",
+    after: "/images/before-after/kids-room-after.png",
   },
   {
-    title: "거실 수납",
-    location: "빌라 18평",
-    duration: "3시간",
-    beforeColor: "from-orange-200 to-yellow-200",
-    afterColor: "from-emerald-200 to-teal-200",
+    title: "옷장 · 드레스룸",
+    location: "아파트",
+    before: "/images/before-after/closet-before.png",
+    after: "/images/before-after/closet-after.png",
+  },
+  {
+    title: "창고 · 수납실",
+    location: "사무실",
+    before: "/images/before-after/storage-before.png",
+    after: "/images/before-after/storage-after.png",
+  },
+  {
+    title: "거실 · 원룸",
+    location: "빌라",
+    before: "/images/before-after/living-before.png",
+    after: "/images/before-after/living-after.png",
+  },
+  {
+    title: "사무실 정리",
+    location: "사무실",
+    before: "/images/before-after/room-before.png",
+    after: "/images/before-after/room-after.png",
+  },
+  {
+    title: "수납장 · 선반",
+    location: "학교",
+    before: "/images/before-after/shelf-before.png",
+    after: "/images/before-after/shelf-after.png",
+  },
+  {
+    title: "팬트리 · 창고",
+    location: "가정",
+    before: "/images/before-after/pantry-before.png",
+    after: "/images/before-after/pantry-after.png",
+  },
+  {
+    title: "사무공간 1",
+    location: "사무실",
+    before: "/images/before-after/office1-before.png",
+    after: "/images/before-after/office1-after.png",
+  },
+  {
+    title: "사무공간 2",
+    location: "사무실",
+    before: "/images/before-after/office2-before.png",
+    after: "/images/before-after/office2-after.png",
   },
 ];
 
@@ -55,55 +82,74 @@ export default function BeforeAfter() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {portfolioItems.map((item, i) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
             >
-              {/* Before / After placeholder */}
-              <div className="grid grid-cols-2 h-48">
-                <div
-                  className={`bg-gradient-to-br ${item.beforeColor} flex items-center justify-center relative`}
-                >
-                  <span className="absolute top-3 left-3 bg-black/60 text-white text-xs px-2 py-1 rounded">
+              <div className="grid grid-cols-2">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={item.before}
+                    alt={`${item.title} Before`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <span className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded font-medium">
                     Before
                   </span>
-                  <span className="text-4xl opacity-50">📷</span>
                 </div>
-                <div
-                  className={`bg-gradient-to-br ${item.afterColor} flex items-center justify-center relative`}
-                >
-                  <span className="absolute top-3 right-3 bg-primary-dark text-white text-xs px-2 py-1 rounded">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={item.after}
+                    alt={`${item.title} After`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <span className="absolute top-2 right-2 bg-primary-dark text-white text-xs px-2 py-1 rounded font-medium">
                     After
                   </span>
-                  <span className="text-4xl opacity-50">✨</span>
                 </div>
               </div>
-              <div className="p-5">
-                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                <div className="flex gap-4 text-sm text-muted">
-                  <span>{item.location}</span>
-                  <span>|</span>
-                  <span>소요시간 {item.duration}</span>
-                </div>
+              <div className="p-4">
+                <h3 className="font-bold text-base">{item.title}</h3>
+                <span className="text-sm text-muted">{item.location}</span>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+        {/* Labeling showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-muted mt-8 text-sm"
+          transition={{ duration: 0.6 }}
+          className="mt-12 bg-white rounded-2xl overflow-hidden shadow-sm max-w-md mx-auto"
         >
-          * 실제 작업 사진은 고객 동의 후 업데이트됩니다
-        </motion.p>
+          <div className="relative aspect-[4/3]">
+            <Image
+              src="/images/labeling.png"
+              alt="라벨링 작업"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 400px"
+            />
+          </div>
+          <div className="p-4 text-center">
+            <h3 className="font-bold text-base">라벨링으로 완벽 마무리</h3>
+            <p className="text-sm text-muted">
+              모든 수납 공간에 라벨링까지 완료하여 누구나 쉽게 찾을 수 있습니다
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const credentials = [
   { icon: "🏆", label: "이사경력 9년" },
@@ -12,12 +13,18 @@ const credentials = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-light/40 via-white to-accent-light/30" />
-
-      {/* Decorative shapes */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero-kitchen.png"
+          alt="깔끔하게 정리된 주방"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-white/75 backdrop-blur-[2px]" />
+      </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <motion.div

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -44,8 +45,14 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="shrink-0"
           >
-            <div className="w-56 h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-primary-light to-accent-light flex items-center justify-center shadow-lg">
-              <span className="text-6xl">👩‍💼</span>
+            <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-lg relative">
+              <Image
+                src="/images/lectures.png"
+                alt="홍선아 대표 강의 활동"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 256px, 288px"
+              />
             </div>
           </motion.div>
 
