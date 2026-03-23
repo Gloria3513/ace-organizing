@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12 px-4">
@@ -5,9 +7,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold mb-3 text-primary">
-              에이스정리수납
-            </h3>
+            <Image
+              src="/images/ace-logo.png"
+              alt="에이스정리수납 로고"
+              width={140}
+              height={46}
+              className="h-10 w-auto mb-3 brightness-0 invert"
+            />
             <p className="text-gray-400 text-sm leading-relaxed">
               전문 정리수납 컨설턴트가
               <br />

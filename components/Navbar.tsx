@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#services", label: "서비스" },
@@ -33,9 +34,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <span className="text-xl md:text-2xl font-bold text-primary-dark">
-              에이스정리수납
-            </span>
+            <Image
+              src="/images/ace-logo.png"
+              alt="에이스정리수납 로고"
+              width={120}
+              height={40}
+              className="h-8 md:h-10 w-auto"
+            />
           </a>
 
           {/* Desktop Nav */}
