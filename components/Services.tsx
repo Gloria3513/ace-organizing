@@ -4,28 +4,40 @@ import { motion } from "framer-motion";
 
 const services = [
   {
-    icon: "🏠",
-    title: "가정 정리수납",
-    desc: "주방, 거실, 침실, 아이방 등 공간별 맞춤 정리로 쾌적한 생활공간을 만들어 드립니다.",
-    features: ["주방 정리", "옷장 정리", "아이방 정리", "거실 정리"],
+    icon: "👤",
+    title: "1인가구 · 원룸",
+    desc: "작은 공간도 효율적으로! 원룸·오피스텔 맞춤 수납 솔루션",
+    features: ["미니 주방 정리", "옷장 정리", "수납공간 확보", "동선 최적화"],
+  },
+  {
+    icon: "👫",
+    title: "2인가구 · 신혼",
+    desc: "두 사람의 물건을 하나로! 신혼집·커플 맞춤 정리",
+    features: ["공용공간 분리", "주방 정리", "드레스룸", "수납용품 추천"],
+  },
+  {
+    icon: "👨‍👩‍👧",
+    title: "3~4인가구 · 가족",
+    desc: "아이부터 어른까지, 온 가족이 편한 정리 시스템 구축",
+    features: ["아이방 정리", "거실 정리", "주방 정리", "옷장 정리"],
   },
   {
     icon: "🏢",
-    title: "사무실 정리",
-    desc: "업무 효율을 높이는 오피스 정리 컨설팅으로 깔끔한 업무 환경을 제공합니다.",
-    features: ["서류 정리", "책상 정리", "수납 시스템", "공용공간 정리"],
+    title: "사무실 · 매장",
+    desc: "업무 효율을 높이는 오피스 정리 컨설팅",
+    features: ["서류 정리", "책상 정리", "창고 정리", "매장 진열"],
   },
   {
     icon: "📦",
-    title: "이사·입주 정리",
-    desc: "새 공간에 맞는 수납 동선 설계부터 짐 정리까지 한 번에 해결해 드립니다.",
-    features: ["동선 설계", "짐 배치", "수납용품 추천", "라벨링"],
+    title: "이사 · 입주 정리",
+    desc: "새 공간에 맞는 수납 동선 설계부터 짐 정리까지 한 번에",
+    features: ["동선 설계", "짐 배치", "라벨링", "수납용품 세팅"],
   },
   {
     icon: "📋",
     title: "정리수납 컨설팅",
-    desc: "1:1 맞춤 상담으로 나에게 맞는 정리 습관과 수납 방법을 코칭해 드립니다.",
-    features: ["1:1 상담", "정리 습관 코칭", "수납 방법 교육", "사후 관리"],
+    desc: "1:1 맞춤 상담으로 정리 습관과 수납 방법을 코칭",
+    features: ["1:1 상담", "습관 코칭", "수납 교육", "사후 관리"],
   },
 ];
 
@@ -51,7 +63,7 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <motion.div
               key={service.title}

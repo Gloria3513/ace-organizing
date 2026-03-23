@@ -2,6 +2,13 @@
 
 import { motion } from "framer-motion";
 
+const credentials = [
+  { icon: "🏆", label: "이사경력 9년" },
+  { icon: "🤝", label: "4년 단체협회 보유" },
+  { icon: "📜", label: "1급 자격증 보유" },
+  { icon: "🎓", label: "전문 강사" },
+];
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -19,7 +26,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block bg-primary-light/60 text-primary-dark px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-            전문 정리수납 컨설팅
+            공간과 생활을 설계하는
           </span>
         </motion.div>
 
@@ -27,28 +34,59 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
         >
-          정리하면 달라지는
+          <span className="text-primary-dark">홍선아</span>
           <br />
-          <span className="text-primary-dark">우리 집</span>
+          정리수납 전문가
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10"
+          className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-4"
         >
-          전문 정리수납 컨설턴트 홍선아 대표가
-          <br className="hidden sm:block" />
-          당신의 공간을 새롭게 바꿔드립니다
+          에이스정리수납 대표
         </motion.p>
 
+        <motion.a
+          href="tel:010-3465-0804"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+          className="inline-block text-2xl md:text-3xl font-bold text-primary-dark mb-10"
+        >
+          📞 010-3465-0804
+        </motion.a>
+
+        {/* Credentials badges */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto mb-10"
+        >
+          {credentials.map((cred, i) => (
+            <motion.div
+              key={cred.label}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
+              className="bg-white/80 backdrop-blur-sm border border-primary/20 rounded-xl px-4 py-3 shadow-sm"
+            >
+              <span className="text-2xl block mb-1">{cred.icon}</span>
+              <span className="text-sm font-medium text-foreground">
+                {cred.label}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
@@ -63,27 +101,6 @@ export default function Hero() {
           >
             포트폴리오 보기
           </a>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-md mx-auto"
-        >
-          {[
-            { number: "500+", label: "정리 완료" },
-            { number: "100%", label: "고객 만족" },
-            { number: "5년+", label: "경력" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-primary-dark">
-                {stat.number}
-              </div>
-              <div className="text-sm text-muted mt-1">{stat.label}</div>
-            </div>
-          ))}
         </motion.div>
       </div>
 

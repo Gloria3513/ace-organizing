@@ -4,34 +4,28 @@ import { motion } from "framer-motion";
 
 const painPoints = [
   {
+    icon: "😰",
+    question: "매일 물건을 찾느라 스트레스 받아보신 적 있으시다면?",
+  },
+  {
     icon: "📦",
-    title: "물건이 넘쳐나요",
-    desc: "정리할 엄두가 안 나고 어디서부터 시작해야 할지 모르겠어요",
+    question: "이사 후 짐 정리, 어디서부터 시작해야 할지 막막하다면?",
   },
   {
     icon: "🔄",
-    title: "정리해도 금방 어질러져요",
-    desc: "열심히 정리해도 일주일이면 다시 원래대로 돌아가요",
-  },
-  {
-    icon: "🏠",
-    title: "이사 후 짐 정리가 막막해요",
-    desc: "새 집에 짐을 어디에 어떻게 넣어야 할지 감이 안 잡혀요",
+    question: "정리해도 금방 어질러져서 포기한 적 있으시다면?",
   },
   {
     icon: "🗄️",
-    title: "수납공간을 활용 못 해요",
-    desc: "수납장은 있는데 제대로 활용하지 못하고 있어요",
-  },
-  {
-    icon: "🍳",
-    title: "주방이 늘 정신없어요",
-    desc: "요리할 때마다 필요한 걸 찾느라 시간을 허비해요",
+    question: "수납공간은 있는데 제대로 활용을 못 하고 계신다면?",
   },
   {
     icon: "👕",
-    title: "옷장 문을 못 열겠어요",
-    desc: "옷이 쏟아져 나올 것 같아서 문 열기가 두려워요",
+    question: "옷장 문 열기가 두려우실 정도라면?",
+  },
+  {
+    icon: "🍳",
+    question: "주방이 늘 정신없어서 요리가 싫어지셨다면?",
   },
 ];
 
@@ -47,26 +41,29 @@ export default function PainPoints() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            이런 고민, 혹시 나만 하는 건 아니겠죠?
+            혹시 이런 경험,
+            <br />
+            <span className="text-primary-dark">있으시다면?</span>
           </h2>
           <p className="text-muted text-lg">
-            혼자 해결하기 어려운 정리 고민, 전문가에게 맡겨보세요
+            하나라도 해당된다면, 전문가의 도움이 필요한 순간입니다
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {painPoints.map((item, i) => (
             <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={item.question}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow flex items-center gap-4 border-l-4 border-primary-dark"
             >
-              <span className="text-3xl mb-3 block">{item.icon}</span>
-              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-muted text-sm leading-relaxed">{item.desc}</p>
+              <span className="text-3xl shrink-0">{item.icon}</span>
+              <p className="text-foreground font-medium leading-relaxed">
+                {item.question}
+              </p>
             </motion.div>
           ))}
         </div>

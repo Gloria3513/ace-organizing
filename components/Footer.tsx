@@ -30,7 +30,7 @@ export default function Footer() {
             <h4 className="font-bold mb-3">SNS</h4>
             <div className="flex gap-3">
               <a
-                href="https://blog.naver.com"
+                href="https://blog.naver.com/hsahhh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-[#03C75A] rounded-full flex items-center justify-center text-sm font-bold hover:opacity-80 transition-opacity"
