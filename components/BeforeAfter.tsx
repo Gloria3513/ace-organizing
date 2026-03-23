@@ -82,7 +82,7 @@ export default function BeforeAfter() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {portfolioItems.map((item, i) => (
             <motion.div
               key={item.title}
@@ -92,35 +92,35 @@ export default function BeforeAfter() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
             >
-              <div className="grid grid-cols-2">
-                <div className="relative aspect-[4/3]">
+              <div className="p-4 pb-2">
+                <h3 className="font-bold text-lg">{item.title}</h3>
+                <span className="text-sm text-muted">{item.location}</span>
+              </div>
+              <div className="grid grid-cols-2 gap-2 px-4 pb-4">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                   <Image
                     src={item.before}
                     alt={`${item.title} Before`}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 45vw, 280px"
                   />
-                  <span className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-1 rounded font-medium">
+                  <span className="absolute top-2 left-2 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-medium">
                     Before
                   </span>
                 </div>
-                <div className="relative aspect-[4/3]">
+                <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                   <Image
                     src={item.after}
                     alt={`${item.title} After`}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 45vw, 280px"
                   />
-                  <span className="absolute top-2 right-2 bg-primary-dark text-white text-xs px-2 py-1 rounded font-medium">
+                  <span className="absolute top-2 right-2 bg-primary-dark text-white text-xs px-3 py-1 rounded-full font-medium">
                     After
                   </span>
                 </div>
-              </div>
-              <div className="p-4">
-                <h3 className="font-bold text-base">{item.title}</h3>
-                <span className="text-sm text-muted">{item.location}</span>
               </div>
             </motion.div>
           ))}
