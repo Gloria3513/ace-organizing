@@ -28,6 +28,54 @@ const portfolioItems = [
     before: "/images/before-after/pantry2-before.jpeg",
     after: "/images/before-after/pantry2-after.jpeg",
   },
+  {
+    title: "거실 정리",
+    location: "가정",
+    before: "/images/before-after/living-before.jpeg",
+    after: "/images/before-after/living-after.jpeg",
+  },
+  {
+    title: "거실 정리 2",
+    location: "가정",
+    before: "/images/before-after/living2-before.jpeg",
+    after: "/images/before-after/living2-after.jpeg",
+  },
+  {
+    title: "사무실 정리",
+    location: "사무실",
+    before: "/images/before-after/office-before.jpeg",
+    after: "/images/before-after/office-after.jpeg",
+  },
+  {
+    title: "창고 · 수납실",
+    location: "사무실",
+    before: "/images/before-after/storage-before.png",
+    after: "/images/before-after/storage-after.png",
+  },
+  {
+    title: "수납장 · 선반",
+    location: "어린이집",
+    before: "/images/before-after/shelf-before.png",
+    after: "/images/before-after/shelf-after.png",
+  },
+  {
+    title: "팬트리 · 창고",
+    location: "가정",
+    before: "/images/before-after/pantry-before.png",
+    after: "/images/before-after/pantry-after.png",
+  },
+  {
+    title: "사무공간 1",
+    location: "사무실",
+    before: "/images/before-after/office1-before.png",
+    after: "/images/before-after/office1-after.png",
+  },
+  {
+    title: "사무공간 2",
+    location: "사무실",
+    before: "/images/before-after/office2-before.png",
+    after: "/images/before-after/office2-after.png",
+  },
 ];
 
 export default function BeforeAfter() {
