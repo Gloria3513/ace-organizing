@@ -5,64 +5,28 @@ import Image from "next/image";
 
 const portfolioItems = [
   {
-    title: "거실 정리",
-    location: "아파트",
-    before: "/images/before-after/living-before.jpeg",
-    after: "/images/before-after/living-after.jpeg",
+    title: "옷장 정리",
+    location: "가정",
+    before: "/images/before-after/closet-before.jpeg",
+    after: "/images/before-after/closet-after.jpeg",
   },
   {
-    title: "거실 정리 2",
-    location: "아파트",
-    before: "/images/before-after/living2-before.jpeg",
-    after: "/images/before-after/living2-after.jpeg",
+    title: "드레스룸 정리",
+    location: "가정",
+    before: "/images/before-after/dressroom-before.jpeg",
+    after: "/images/before-after/dressroom-after.jpeg",
   },
   {
     title: "아이방 정리",
-    location: "아파트",
-    before: "/images/before-after/kids-room-before.jpeg",
-    after: "/images/before-after/kids-room-after.jpeg",
-  },
-  {
-    title: "사무실 정리",
-    location: "사무실",
-    before: "/images/before-after/office-before.jpeg",
-    after: "/images/before-after/office-after.jpeg",
-  },
-  {
-    title: "옷장 · 드레스룸",
-    location: "아파트",
-    before: "/images/before-after/closet-before.png",
-    after: "/images/before-after/closet-after.png",
-  },
-  {
-    title: "창고 · 수납실",
-    location: "사무실",
-    before: "/images/before-after/storage-before.png",
-    after: "/images/before-after/storage-after.png",
-  },
-  {
-    title: "수납장 · 선반",
-    location: "학교",
-    before: "/images/before-after/shelf-before.png",
-    after: "/images/before-after/shelf-after.png",
+    location: "가정",
+    before: "/images/before-after/kidsroom-before.jpeg",
+    after: "/images/before-after/kidsroom-after.jpeg",
   },
   {
     title: "팬트리 · 창고",
     location: "가정",
-    before: "/images/before-after/pantry-before.png",
-    after: "/images/before-after/pantry-after.png",
-  },
-  {
-    title: "사무공간 1",
-    location: "사무실",
-    before: "/images/before-after/office1-before.png",
-    after: "/images/before-after/office1-after.png",
-  },
-  {
-    title: "사무공간 2",
-    location: "사무실",
-    before: "/images/before-after/office2-before.png",
-    after: "/images/before-after/office2-after.png",
+    before: "/images/before-after/pantry2-before.jpeg",
+    after: "/images/before-after/pantry2-after.jpeg",
   },
 ];
 

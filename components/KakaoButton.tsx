@@ -19,7 +19,9 @@ export default function KakaoButton() {
 
       {/* KakaoTalk button */}
       <motion.a
-        href="#contact"
+        href="https://pf.kakao.com/_GDxixdX/chat"
+        target="_blank"
+        rel="noopener noreferrer"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 1.2, type: "spring" }}

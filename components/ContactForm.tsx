@@ -1,75 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 
-interface FormData {
-  name: string;
-  phone: string;
-  area: string;
-  spaces: string[];
-  message: string;
-}
-
-const spaceOptions = [
-  "주방",
-  "거실",
-  "침실",
-  "옷장",
-  "아이방",
-  "서재",
-  "사무실",
-  "기타",
+const steps = [
+  { icon: "📸", text: "정리가 필요한 공간 사진을 찍어주세요" },
+  { icon: "💬", text: "카카오톡으로 사진과 함께 문의해주세요" },
+  { icon: "📋", text: "맞춤 견적과 일정을 안내드립니다" },
 ];
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>();
-
-  const onSubmit = async (data: FormData) => {
-    setSubmitting(true);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-      }
-    } catch {
-      alert("전송에 실패했습니다. 전화로 문의해주세요.");
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  if (submitted) {
-    return (
-      <section id="contact" className="section-padding bg-primary-dark">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="max-w-2xl mx-auto text-center text-white"
-        >
-          <span className="text-5xl mb-4 block">✅</span>
-          <h2 className="text-3xl font-bold mb-4">상담 신청이 완료되었습니다!</h2>
-          <p className="text-white/80 text-lg">
-            빠른 시일 내에 연락드리겠습니다.
-            <br />
-            감사합니다.
-          </p>
-        </motion.div>
-      </section>
-    );
-  }
-
   return (
     <section id="contact" className="section-padding bg-primary-dark">
       <div className="max-w-3xl mx-auto">
@@ -84,116 +23,65 @@ export default function ContactForm() {
             무료 상담 신청하기
           </h2>
           <p className="text-white/70 text-lg">
-            정리가 필요한 공간이 있다면 편하게 문의해주세요
+            사진 한 장이면 맞춤 견적을 받아보실 수 있어요
           </p>
         </motion.div>
 
-        <motion.form
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          onSubmit={handleSubmit(onSubmit)}
-          className="bg-white rounded-2xl p-6 md:p-8 shadow-xl"
+          className="bg-white rounded-2xl p-6 md:p-10 shadow-xl"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-            {/* 이름 */}
-            <div>
-              <label className="block text-sm font-medium mb-1.5">
-                이름 <span className="text-red-500">*</span>
-              </label>
-              <input
-                {...register("name", { required: "이름을 입력해주세요" })}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-dark focus:ring-1 focus:ring-primary-dark outline-none transition"
-                placeholder="홍길동"
-              />
-              {errors.name && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.name.message}
+          {/* 상담 진행 단계 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {steps.map((step, i) => (
+              <div key={i} className="text-center">
+                <div className="text-3xl mb-2">{step.icon}</div>
+                <div className="text-xs text-primary-dark font-bold mb-1">
+                  STEP {i + 1}
+                </div>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {step.text}
                 </p>
-              )}
-            </div>
-
-            {/* 연락처 */}
-            <div>
-              <label className="block text-sm font-medium mb-1.5">
-                연락처 <span className="text-red-500">*</span>
-              </label>
-              <input
-                {...register("phone", {
-                  required: "연락처를 입력해주세요",
-                  pattern: {
-                    value: /^[0-9-]+$/,
-                    message: "올바른 전화번호를 입력해주세요",
-                  },
-                })}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-dark focus:ring-1 focus:ring-primary-dark outline-none transition"
-                placeholder="010-1234-5678"
-              />
-              {errors.phone && (
-                <p className="text-red-500 text-xs mt-1">
-                  {errors.phone.message}
-                </p>
-              )}
-            </div>
+              </div>
+            ))}
           </div>
 
-          {/* 지역 */}
-          <div className="mb-5">
-            <label className="block text-sm font-medium mb-1.5">지역</label>
-            <input
-              {...register("area")}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-dark focus:ring-1 focus:ring-primary-dark outline-none transition"
-              placeholder="서울시 강남구"
-            />
-          </div>
+          <div className="border-t border-gray-100 pt-8">
+            {/* 카카오톡 상담 버튼 */}
+            <a
+              href="https://pf.kakao.com/_GDxixdX/chat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 w-full bg-[#FEE500] text-[#1A1A1A] py-4 rounded-full text-lg font-bold hover:brightness-95 transition"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.56-.96 3.58-1 3.73 0 .09.03.18.1.23a.26.26 0 00.25.02c.33-.05 3.83-2.5 4.44-2.93.5.07 1.02.1 1.55.1 5.52 0 10-3.58 10-7.82S17.52 3 12 3z" />
+              </svg>
+              카카오톡으로 상담하기
+            </a>
 
-          {/* 정리 희망 공간 */}
-          <div className="mb-5">
-            <label className="block text-sm font-medium mb-2.5">
-              정리 희망 공간 (복수 선택 가능)
-            </label>
-            <div className="flex flex-wrap gap-2">
-              {spaceOptions.map((space) => (
-                <label
-                  key={space}
-                  className="cursor-pointer"
-                >
-                  <input
-                    type="checkbox"
-                    value={space}
-                    {...register("spaces")}
-                    className="peer hidden"
-                  />
-                  <span className="inline-block px-4 py-2 rounded-full border border-gray-200 text-sm peer-checked:bg-primary-dark peer-checked:text-white peer-checked:border-primary-dark transition-colors">
-                    {space}
-                  </span>
-                </label>
-              ))}
+            {/* 전화 상담 */}
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-400 mb-2">
+                전화 상담도 가능합니다
+              </p>
+              <a
+                href="tel:010-3465-0804"
+                className="inline-flex items-center gap-2 text-primary-dark font-semibold hover:underline"
+              >
+                📞 010-3465-0804
+              </a>
             </div>
           </div>
-
-          {/* 메시지 */}
-          <div className="mb-6">
-            <label className="block text-sm font-medium mb-1.5">
-              기타 요청사항
-            </label>
-            <textarea
-              {...register("message")}
-              rows={4}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-dark focus:ring-1 focus:ring-primary-dark outline-none transition resize-none"
-              placeholder="정리가 필요한 상황을 자유롭게 적어주세요"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full bg-primary-dark text-white py-4 rounded-full text-lg font-medium hover:bg-accent transition-colors disabled:opacity-60"
-          >
-            {submitting ? "전송 중..." : "무료 상담 신청하기"}
-          </button>
-        </motion.form>
+        </motion.div>
       </div>
     </section>
   );
