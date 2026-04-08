@@ -76,6 +76,24 @@ const portfolioItems = [
     before: "/images/before-after/office2-before.png",
     after: "/images/before-after/office2-after.png",
   },
+  {
+    title: "사무실 정리 2",
+    location: "사무실",
+    before: "/images/before-after/office2-before.jpeg",
+    after: "/images/before-after/office2-after.jpeg",
+  },
+  {
+    title: "드레스룸 정리 2",
+    location: "가정",
+    before: "/images/before-after/dressroom2-before.jpeg",
+    after: "/images/before-after/dressroom2-after.jpeg",
+  },
+  {
+    title: "팬트리 · 수납",
+    location: "유치원",
+    before: "/images/before-after/kindergarten-pantry-before.jpeg",
+    after: "/images/before-after/kindergarten-pantry-after.jpeg",
+  },
 ];
 
 export default function BeforeAfter() {
@@ -142,6 +160,43 @@ export default function BeforeAfter() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Video showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 text-center mb-8"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold mb-2">
+            영상으로 보는 정리 과정
+          </h3>
+          <p className="text-muted">실제 작업 현장을 영상으로 확인해보세요</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {["/videos/ace-1.mp4", "/videos/ace-2.mp4", "/videos/ace-3.mp4"].map(
+            (src, i) => (
+              <motion.div
+                key={src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+              >
+                <video
+                  src={src}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full aspect-[9/16] object-cover"
+                />
+              </motion.div>
+            )
+          )}
         </div>
 
         {/* Labeling showcase */}
