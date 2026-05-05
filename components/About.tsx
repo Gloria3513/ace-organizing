@@ -92,7 +92,7 @@ export default function About() {
                 네이버 블로그
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/hongsunar1004"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] text-white px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"

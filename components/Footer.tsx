@@ -44,7 +44,7 @@ export default function Footer() {
                 N
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/hongsunar1004"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gradient-to-r from-[#f09433] via-[#dc2743] to-[#bc1888] rounded-full flex items-center justify-center text-sm hover:opacity-80 transition-opacity"
